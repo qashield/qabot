@@ -1,22 +1,15 @@
-![ApiGeek](docs/favicon.png) ![CI](https://travis-ci.org/qa/architect.svg?branch=master) ![version](https://img.shields.io/github/release/qa/architect.svg?maxAge=2592000) ![dependencies](https://img.shields.io/david/qa/architect.svg?maxAge=2592000) ![qas](https://img.shields.io/badge/qas-are%20awesome-800080.svg) [![NPM](https://nodei.co/npm/qa-architect.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/qa-architect/)
+BDD/Gherkin QA robot for effortless software testing
+====================================================
 
-Executable English for Agile Software Teams
-===========================================
+	As a QA Specialist, I want to generate executable BDD tests for APIs and web apps
 
-QAShield:bot is a testing, automation and orchestration tool for agile software teams. 
+QAshield:bot is a testing, automation and orchestration tool for agile software teams. 
 
-Architect uses English as a scripting language to help simplify, standardise and socialise software deliverables. 
+QAshield uses English as a scripting language to help simplify, standardise and socialise software deliverables. 
 
 We take a Business Driven Development (BDD) approach to designing, deploying and governing complex software systems.
 
-Architect was designed to support a number of common use cases:
-
-	As an over-worked Developer, I want to build skeleton code using my favourite framework
-	As a QA Specialist, I want to generate executable BDD tests for APIs and web apps
-	As a Product Owner, I want to up-to-date document for various stakeholders
-	As an Enterprise Architect, I want to build, document and instrument my solutions
-
-Tasks are written in English so that every stakeholder (including the CIO :-) can make sense of them.
+Tests are written in English so that every stakeholder (including the CIO :-) can make sense of them.
 
 [View the PDF introduction](docs/Intro.pdf). 
 
@@ -25,7 +18,7 @@ I want to automate myself
 
 We're all busy. We write scripts, or at we should. But our scripts are unreadable by our stakeholders - often even ourselves.
 
-With Architect, you write your requirements in a simplified dialect of English - called Gherkin. 
+With QAshield, you write your requirements in a simplified dialect of English - called Gherkin. 
 
 These "Features" contain executable English instructions - actions and assertions - that are easy to read, write and socialise.
 
@@ -33,7 +26,7 @@ Features are lists of related scenarios. It's the scenario's that do all the hea
 
 A scenario describes your pre-conditions, actions and outcomes in a way that is both human and machine friendly.
 
-Architect can be invoked elegantly from an API, the command line, Mocha, your IDE or your DevOps workflow.
+QAshield can be invoked elegantly from an API, the command line, Mocha, your IDE or your DevOps workflow.
 
 I want to learn Executable English
 ==================================
@@ -62,7 +55,6 @@ To improve readability, the keyword AND can be used instead in place of the verb
 
 You can influence what QAShield:bot understands using @dialect annotations.
 
-	@dialects=webapi
 	Feature: Verify that Google is accessible
 	
 	Background: Google Scenarios
@@ -92,7 +84,7 @@ If you're new to NodeJS, pre-read [Installing Node](https://docs.npmjs.com/getti
 
 You install QAShield:bot as a system-wide CLI command:
 
-	$ npm install qa-architect -g
+	$ npm install qashield-qabot -g
 
 To run it simply type:
 
@@ -280,7 +272,7 @@ I want to add comments
 
 It's useful to document your intentions or to prevent a statement from running, for example during development.
 
-Simple, place a # before any line and it will be ignored by Architect.
+Simple, place a # before any line and it will be ignored by QAshield.
 
 	# This is ignored by the parser
 	Scenario: Comments Example
@@ -302,7 +294,7 @@ An @bug scenario will pass normally (skipped) but fail when --debug is used.
 I want to automate everything
 =============================
 
-That is our goal too. We'll continue to address the needs of Enterprise Architects.
+That is our goal too. We'll continue to address the needs of Enterprise QAshields.
 
 Competent software engineers can easily create "blueprints" that capture the patterns, templates and files used to build SDLC artefacts.
 
