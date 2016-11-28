@@ -1,0 +1,334 @@
+![ApiGeek](docs/favicon.png) ![CI](https://travis-ci.org/qa/architect.svg?branch=master) ![version](https://img.shields.io/github/release/qa/architect.svg?maxAge=2592000) ![dependencies](https://img.shields.io/david/qa/architect.svg?maxAge=2592000) ![qas](https://img.shields.io/badge/qas-are%20awesome-800080.svg) [![NPM](https://nodei.co/npm/qa-architect.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/qa-architect/)
+
+Executable English for Agile Software Teams
+===========================================
+
+QAShield:bot is a testing, automation and orchestration tool for agile software teams. 
+
+Architect uses English as a scripting language to help simplify, standardise and socialise software deliverables. 
+
+We take a Business Driven Development (BDD) approach to designing, deploying and governing complex software systems.
+
+Architect was designed to support a number of common use cases:
+
+	As an over-worked Developer, I want to build skeleton code using my favourite framework
+	As a QA Specialist, I want to generate executable BDD tests for APIs and web apps
+	As a Product Owner, I want to up-to-date document for various stakeholders
+	As an Enterprise Architect, I want to build, document and instrument my solutions
+
+Tasks are written in English so that every stakeholder (including the CIO :-) can make sense of them.
+
+[View the PDF introduction](docs/Intro.pdf). 
+
+I want to automate myself
+=========================
+
+We're all busy. We write scripts, or at we should. But our scripts are unreadable by our stakeholders - often even ourselves.
+
+With Architect, you write your requirements in a simplified dialect of English - called Gherkin. 
+
+These "Features" contain executable English instructions - actions and assertions - that are easy to read, write and socialise.
+
+Features are lists of related scenarios. It's the scenario's that do all the heavy lifting.
+
+A scenario describes your pre-conditions, actions and outcomes in a way that is both human and machine friendly.
+
+Architect can be invoked elegantly from an API, the command line, Mocha, your IDE or your DevOps workflow.
+
+I want to learn Executable English
+==================================
+
+The BDD notation for a feature / scenario is:
+
+	Feature: Basic Examples
+
+	Scenario: An example
+		GIVEN   some context
+		WHEN    an action is performed
+		THEN    an outcome is expected
+
+The text following the keyword (GIVEN | WHEN | THEN) needs to match a phrase/pattern from a vocabulary.
+
+This BDD notation is called "Gherkin". Gherkin is human and machine readable - business analysts, featureers, developers and robots can collaborate.
+
+New features can be created using any simple text editor - where you'd use QAShield:bot's extensible vocabulary to write them.
+
+You can download pre-packaged vocabularies (called Dialects) and/or roll your own with simple Javascript.
+
+I want to see a working example
+===============================
+
+To improve readability, the keyword AND can be used instead in place of the verbs above.
+
+You can influence what QAShield:bot understands using @dialect annotations.
+
+	@dialects=webapi
+	Feature: Verify that Google is accessible
+	
+	Background: Google Scenarios
+	
+	    Given I am googling
+	
+	  Scenario: Request Google homepage - with redirects
+	
+	    Given I enable redirects
+	    When I GET http://google.com
+	    Then response code should be 200
+	
+	  Scenario: Request Google homepage - no redirect
+	
+	    Given I disable redirects
+	    When I GET http://google.com
+	    Then response code should be 3xx
+
+[View more .feature examples](docs/examples/).
+
+I want to test-drive QAShield:bot
+======================================
+
+QAShield:bot is built using NodeJS. 
+
+If you're new to NodeJS, pre-read [Installing Node](https://docs.npmjs.com/getting-started/installing-node).
+
+You install QAShield:bot as a system-wide CLI command:
+
+	$ npm install qa-architect -g
+
+To run it simply type:
+
+	$ qa
+
+However, it won't do much else until we provide some feature scenarios.
+
+By default, QAShield:bot looks for ".feature" files recursively, by default they're stored in the "./features/" directory.
+
+I want to create my first Feature
+=================================
+
+1) To quickly create a few examples in the ./features folder, type:
+
+		$ qa --example
+
+This will create the ./features folder and copy some simple examples.
+
+It will also write your default configuration to ./qa.json
+
+It won't damage if you run it again, except re-save your ./qa.json config.
+
+Or, you can just create the ./features folder and a default "qa.json" without the examples:
+
+	$ qa --initialize
+
+2) To execute your example ".feature" files, type:
+
+		$ qa
+
+3) If something goes wrong, enable the built-in debugger.
+
+		$ export DEBUG=qa*
+		$ qa
+
+Now, the output is verbose and colour-coded to make your life easier.
+
+To turn off debugging, type:
+
+		$ export DEBUG=
+		$ qa
+
+I want to learn some vocabulary
+===============================
+
+QAShield:bot ships with few default vocabularies - variables, files, web apis, web apps, etc. 
+
+Try out the included [.feature examples](docs/examples/) - they cover a range of powerful use cases.
+
+
+To discover what phrases exist in the vocabularies, type:
+
+	$ qa --knows
+
+Let's create a trivial example of a hypothetical test case.
+
+	Scenario: Trivial Test
+
+        Given I am testing debug
+        When debug works
+		And I succeed
+
+The steps are executed in sequence.
+
+The GIVEN steps setup pre-conditions. The "Given I am $acting" phrase doesn't do much - except communicate intentions.
+
+The "WHEN ... " steps do useful work that result in desirable outcomes. For example: writing a file, requesting a web page, etc.
+
+In this example, we simply write a debug message to the console, so let's turn on debug output.
+
+	$ export DEBUG=qa*
+
+You can adjust the logging scope - to see only Web API messages, use: 
+
+	$ export DEBUG=qa:webapi
+
+The "THEN ..." steps make assertions, that is they test that conditions are met. For example, you can use arbitrary Javascript if necessary:
+
+        Then I assert $some_javascript
+
+The "I succeed", "I pass" always meet their conditions. The inverse "I fail" forces the scenario to abort and report it's failure.
+
+I want to learn more about QAShield:bot
+============================================
+
+For runtime options, type:
+
+	$ qa  -h
+
+We actively add capabilities and fix bugs. To upgrade to the latest version, type:
+
+	$ npm update qa-architect -g
+
+For more information, please read:
+
+[Example Features](features/). 
+
+[Basic Dialect](docs/vocab.md). 
+
+[Advanced Dialect](docs/advanced.md). 
+
+[Something Went Wrong](docs/errors.md). 
+
+[Web API Dialect](https://github.com/qa/dialect-webapi/blob/master/vocab.md). 
+
+[Web API Advanced](https://github.com/qa/dialect-webapi/blob/master/advanced.md). 
+
+[Web Apps Dialect](https://github.com/qa/dialect-webapp/blob/master/vocab.md). 
+
+[Web Apps Advanced](https://github.com/qa/dialect-webapp/blob/master/advanced.md). 
+
+[Software Blueprint Dialect](https://github.com/qa/dialect-blueprint/blob/master/vocab.md). 
+
+[Software Blueprint Advanced](https://github.com/qa/dialect-blueprint/blob/master/advanced.md). 
+ 
+I want to organise my work into folders
+=======================================
+
+If your features are in a different location then use the "--features" option to locate them. 
+
+	$ qa --archive ./my-archive --features ./my-features
+
+These folders are not automatically created, they will throw an error if they're not found.
+
+I want to re-use my features in other projects
+==============================================
+
+QAShield:bot was designed to support a declarative style so that features are portable. 
+
+Supplying a different "config" file for each environment allows features to be re-used across multiple environments.
+
+For example, features can adapt to dev, QA and live environments - injecting hostnames, credentials, etc as required.
+
+Most Dialects configure themselves automatically. 
+
+If yours doesn't then there is alternative - use {{mustache}} templates to modify statements prior to execution.
+
+	Given I login as {{scope.actor}}
+
+In this way, your BDD features are neatly abstracted from your runtime configuration.
+
+To specify a runtime configuration for your features, type:
+
+	$ qa --config ./my-context.json
+
+By default, QAShield:bot will try to load a configuration file called "qa.json" from your current directory. 
+
+If no file is found, then sensible default values are defined.
+
+I want to do something before every scenario
+=============================================
+
+Backgrounds are similar to scenarios, except they do not support annotations.
+
+Any feature can contain a background, in which case the steps that carried out before each scenario.
+
+
+	Background: Authenticate
+	
+		GIVEN I login
+		AND I use a valid client certificate
+
+I want to know how it works
+===========================
+
+First, QAShield:bot parses the command line and initializes the Dialect, Features and Engine components.
+
+Next it loads the default dialects. These can be specified on using the APIGEEK_DIALECT environment variable. Dialects can also be
+specified using --dialect option and within Feature: definitions using the @dialect annotation.
+
+Each Dialect instructs the parser (Yadda) to match a set of Gherkin phrases to their related function.
+
+The Feature manager converts features and scenarios into executable units. 
+
+User defined variables are scoped at the feature-level meaning they are shared between scenarios within the same feature. 
+
+The --config file is used as the basis for internal context variables. They are scoped to each scenario.
+
+These variables - such as web requests/responses - can be accessed using the "this." qualifier - with due caution.
+
+Next, the Engine runs each feature using the built-in Mocha runner. Results are correlated and output according to your CLI options.
+
+I want to add comments
+======================
+
+It's useful to document your intentions or to prevent a statement from running, for example during development.
+
+Simple, place a # before any line and it will be ignored by Architect.
+
+	# This is ignored by the parser
+	Scenario: Comments Example
+
+		Given I am using comments
+		# Then I fail
+		Then I succeed
+
+Instead, you should use @skip or @todo before a Feature: or Scenario: definition.
+ 
+An @bug scenario will pass normally (skipped) but fail when --debug is used.
+
+	@bug=something is broken
+
+	Scenario: A Bug
+		Given I am a bug
+		Then I fail
+
+I want to automate everything
+=============================
+
+That is our goal too. We'll continue to address the needs of Enterprise Architects.
+
+Competent software engineers can easily create "blueprints" that capture the patterns, templates and files used to build SDLC artefacts.
+
+Then QAShield:bot can re-use those blueprints to build customised websites, portals, Apps, APIs, mock servers, micro services and more.
+
+Please share any custom Blueprints and Dialects so that QAShield:bot becomes more useful for all of us.
+
+If you need support to build or debug your community Blueprints or Dialects, please ask@qa.me
+
+
+I want to license QAShield:bot
+===================================
+
+This software is licensed under the Apache 2 license, quoted below.
+
+Copyright 2015-2016 Lee Curtis & Troven 2009-2015
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this file except in compliance with the License. You may obtain a copy of
+the License at
+
+    [http://www.apache.org/licenses/LICENSE-2.0]
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations under
+the License.
+

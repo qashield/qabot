@@ -1,0 +1,19 @@
+{
+	"timeout": 10000,
+	"vars": {},
+	"paths": {
+		"features": "./features",
+		"files": ".",
+		"user_home": "/Users/lee",
+		"blueprints": "",
+		"target": "./as.built"
+	},
+	"target": {},
+	"targets": {},
+	"agent": {},
+	"agents": {},
+	"certificates": {},
+	"files": ".",
+	"featuresPath": "./features",
+	"reporter": "spec"
+}

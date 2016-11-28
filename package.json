@@ -1,0 +1,42 @@
+{
+  "name": "qashield-qabot",
+  "version": "0.8.0",
+  "description": "A QA robot that understands BDD/Gherkin",
+  "main": "lib/qa.js",
+  "scripts": {
+    "start": "node lib/qa.js"
+  },
+  "keywords": [
+    "meta4",
+    "meta4mvp"
+  ],
+  "author": "Troven <cto@qashield.com> (https://qashield.com/qabot/)",
+  "licenses": [
+    {
+      "type": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qashield/qabot.git"
+  },
+  "dependencies": {
+    "debug": "^2.3.3",
+    "meta4qa": "^1.5.0",
+    "meta4qa-blueprint": "^1.9.0",
+    "meta4qa-common": "^1.9.0",
+    "meta4qa-webapi": "^1.9.0",
+    "ms": "^0.7.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-yuidoc": "^1.0.0"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "qa": "lib/qa.js"
+  }
+}
