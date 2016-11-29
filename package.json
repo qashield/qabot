@@ -25,7 +25,8 @@
     "meta4qa": "^1.5.1",
     "meta4qa-blueprint": "^1.9.0",
     "meta4qa-common": "^1.9.0",
-    "meta4qa-webapi": "^1.9.0"
+    "meta4qa-webapi": "^1.9.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
