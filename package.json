@@ -1,6 +1,6 @@
 {
   "name": "qashield-qabot",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "A QA robot that understands BDD/Gherkin",
   "main": "lib/index.js",
   "scripts": {
