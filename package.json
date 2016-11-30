@@ -22,6 +22,8 @@
     "url": "https://github.com/qashield/qabot.git"
   },
   "dependencies": {
+    "assert": "^1.4.1",
+    "debug": "^2.3.3",
     "meta4qa": "^1.5.1",
     "meta4qa-blueprint": "^1.9.0",
     "meta4qa-common": "^1.9.0",
