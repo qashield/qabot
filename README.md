@@ -302,7 +302,7 @@ Then QAShield:bot can re-use those blueprints to build customised websites, port
 
 Please share any custom Blueprints and Dialects so that QAShield:bot becomes more useful for all of us.
 
-If you need support to build or debug your community Blueprints or Dialects, please ask@qa.me
+If you need support to build or debug your community Blueprints or Dialects, please ask@qashield.com
 
 
 I want to license QAShield:bot
