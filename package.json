@@ -1,6 +1,6 @@
 {
   "name": "qashield-qabot",
-  "version": "0.8.7",
+  "version": "0.9.0",
   "description": "A QA robot that understands BDD/Gherkin",
   "main": "lib/index.js",
   "scripts": {
@@ -22,13 +22,10 @@
     "url": "https://github.com/qashield/qabot.git"
   },
   "dependencies": {
-    "assert": "^1.4.1",
     "debug": "^2.3.3",
-    "meta4qa": "^1.5.1",
-    "meta4qa-blueprint": "^1.9.0",
+    "meta4qa": "^1.6.0",
     "meta4qa-common": "^1.9.0",
-    "meta4qa-webapi": "^1.9.0",
-    "underscore": "^1.8.3"
+    "meta4qa-webapi": "^1.9.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
